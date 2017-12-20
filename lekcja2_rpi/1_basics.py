@@ -24,7 +24,7 @@ GPIO.setup(10, GPIO.OUT, initial=GPIO.HIGH)
 GPIO.setup(11, GPIO.OUT, initial=GPIO.LOW)
 
 #ustawienie kilku pinow jednoczesnie
-channel_list = [1,2,3]
+channel_list = [3,5,7]
 GPIO.setup(channel_list, GPIO.OUT, initial=GPIO.LOW)
 
 #########################
@@ -44,12 +44,12 @@ print(GPIO.input(13))
 ## sprawdzanie informacji o pinie
 #########################
 
-func = GPIO.gpio_function(pin)
+func = GPIO.gpio_function(10)
 print(str(func))
 #zwroci jedna z wartosci ponizej
 #GPIO.IN, GPIO.OUT, GPIO.SPI, GPIO.I2C, GPIO.HARD_PWM, GPIO.SERIAL, GPIO.UNKNOWN
 
 #czyszczenie stanu i/o
-GPIO.cleanup(1)
+GPIO.cleanup(3)
 GPIO.cleanup(channel_list)
 GPIO.cleanup()
