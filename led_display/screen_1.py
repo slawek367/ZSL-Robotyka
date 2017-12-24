@@ -103,6 +103,7 @@ def test_scroll(screen):
 		time.sleep(1)
 
 def test_pixel(screen):
+	screen.clear()
 	on_leds = []
 	
 	for i in range(64):
@@ -127,24 +128,25 @@ def test_pixel(screen):
 #########################
 ## Main program
 #########################
-'''
-wait(3.0, "Testing of letter functions will start in: ")
+
+delay = 1.0
+
+wait(delay, "Testing of letter functions will start in: ")
 test_letters(screen1)
 
-wait(3.0, "Testing of invert function will start in: ")
+wait(delay, "Testing of invert function will start in: ")
 test_invert(screen1)
 
-wait(3.0, "Testing of orientation function will start in: ")
+wait(delay, "Testing of orientation function will start in: ")
 test_orient(screen1)
 
-wait(3.0, "Testing of scroll down and scroll up function will start in: ")
+wait(delay, "Testing of scroll down and scroll up function will start in: ")
 test_scroll(screen1)
 print("Did you saw something wrong? Yess.. that function doesn't save LEDs behind screen...")
 time.sleep(1)
 
-wait(3.0, "Testing of pixel function will start in: ")
+wait(delay, "Testing of pixel function will start in: ")
 test_pixel(screen1)
-'''
 
 #########################
 ## Base class methods
@@ -153,7 +155,7 @@ test_pixel(screen1)
 wait(1.0, "Screen will be turned on in: ")
 test_turn_on(screen1)
 
-wait(3.0, "Testing of brightness function will start in: ")
+wait(delay, "Testing of brightness function will start in: ")
 test_brightness(screen1)
 
 screen1.clear()
