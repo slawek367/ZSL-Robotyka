@@ -27,7 +27,7 @@ print("Object screen1 created.")
 invert(value, redraw=True) DONE
 letter(deviceId, asciiCode, font=None, redraw=True) DONE
 orientation(angle, redraw=True) DONE
-pixel(x, y, value, redraw=True) TODO
+pixel(x, y, value, redraw=True) DONE
 scroll_down(redraw=True) DONE
 scroll_up(redraw=True) DONE
 show_message(text, font=None, delay=0.05, always_scroll=False) TODO
@@ -86,29 +86,46 @@ def test_scroll(screen):
 		
 		time.sleep(1)
 
-def test_pixel():
+def test_pixel(screen):
 	on_leds = []
 	
+	for i in range(64):
+		
+		isAdded = False
+		while True:
+			x = random.randint(0,7)
+			y = random.randint(0,7)
+			pos = [x,y]
+			
+			if pos in on_leds:
+				continue
+			else:
+				on_leds.append(pos)
+				break
 	
+	for x,y in on_leds:
+		print("Set ON led X=" + str(x) + " Y=" + str(y))
+		screen.pixel(x, y, True, redraw=True)
+		time.sleep(0.05)
+			
 #########################
 ## Main program
 #########################
-
+'''
 wait(3.0, "Testing of letter functions will start in: ")
 test_letters(screen1)
 
-'''
 wait(3.0, "Testing of invert function will start in: ")
 test_invert(screen1)
 
 wait(3.0, "Testing of orientation function will start in: ")
 test_orient(screen1)
 
-
 wait(3.0, "Testing of scroll down and scroll up function will start in: ")
 test_scroll(screen1)
 print("Did you saw something wrong? Yess.. that function doesn't save LEDs behind screen...")
 time.sleep(1)
-'''
 
 wait(3.0, "Testing of pixel function will start in: ")
+test_pixel(screen1)
+'''
