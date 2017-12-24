@@ -32,17 +32,33 @@ scroll_down(redraw=True) DONE
 scroll_up(redraw=True) DONE
 show_message(text, font=None, delay=0.05, always_scroll=False) TODO
 
-Some methods from base device class: TODO
- brightness(intensity)[source]
- clear(deviceId=None)[source]
- command(register, data)[source]
- flush()[source]
- rotate_left(redraw=True)[source]
- rotate_right(redraw=True)[source]
- scroll_left(redraw=True)[source]
- scroll_right(redraw=True)[source]
- set_byte(deviceId, position, value, redraw=True)[source]
+Some methods from base device class:
+ brightness(intensity)[source] DONE
+ clear(deviceId=None)[source] DONE
+ command(register, data)[source] NOT
+ flush()[source] NOT
+ rotate_left(redraw=True)[source] TODO
+ rotate_right(redraw=True)[source] TODO
+ scroll_left(redraw=True)[source] TODO
+ scroll_right(redraw=True)[source] TODO
+ set_byte(deviceId, position, value, redraw=True)[source] NOT
 '''
+# max7219.led.device functions
+	
+def test_brightness(screen):
+	for light_percent in range(0,16):
+		print("Setting brightness to: " + str(light_percent) + " [0-15]")
+		screen.brightness(light_percent)
+		time.sleep(0.2)
+
+# max7219.led.matrix functions
+
+def test_turn_on(screen):
+	screen.clear()
+	for x in range(0,8):
+		for y in range(0,8):
+			screen.pixel(x, y, True, redraw=True)
+	pass
 
 def test_letters(screen):
 	for letter in string.ascii_lowercase:
@@ -129,3 +145,15 @@ time.sleep(1)
 wait(3.0, "Testing of pixel function will start in: ")
 test_pixel(screen1)
 '''
+
+#########################
+## Base class methods
+#########################
+
+wait(1.0, "Screen will be turned on in: ")
+test_turn_on(screen1)
+
+wait(3.0, "Testing of brightness function will start in: ")
+test_brightness(screen1)
+
+screen1.clear()
