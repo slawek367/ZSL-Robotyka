@@ -1,9 +1,9 @@
 # ZSL-Robotyka
 
 ## 8x8 Led matrix
-Sprawdzenie wersjii pip3,
-pip3 --version
-powinna byc 9.0.1
+Sprawdzenie wersjii pip3,\n
+pip3 --version\n
+powinna byc 9.0.1\n
 
 ## Biblioteka starsza max7219 (instalujemy najpierw)
 sudo apt-get install python3-dev python3-pip
