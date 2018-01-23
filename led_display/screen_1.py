@@ -3,6 +3,9 @@ import time
 import string
 import random
 
+from luma.core.interface.serial import spi, noop
+serial = spi(port=0, device=0, gpio=noop())
+
 def wait(wait_time, text):
 	actual_time = time.time()
 	wait_to = actual_time + wait_time
