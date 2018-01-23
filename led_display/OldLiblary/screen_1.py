@@ -128,7 +128,7 @@ def test_pixel(screen):
 #########################
 ## Main program
 #########################
-'''
+
 delay = 1.0
 
 wait(delay, "Testing of letter functions will start in: ")
@@ -159,4 +159,3 @@ wait(delay, "Testing of brightness function will start in: ")
 test_brightness(screen1)
 
 screen1.clear()
-'''
