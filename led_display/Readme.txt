@@ -1,19 +1,19 @@
+# ZSL-Robotyka
+## Folder led_display
+### Sprawdzenie wersjii pip3
+```
 pip3 --version
 powinna byc 9.0.1
+```
 
-#####################################################
-## Biblioteka starsza max7219 (instalujemy najpierw)
-#####################################################
-
+### Biblioteka starsza max7219 (instalujemy najpierw, bÄ™dziemy korzystaÄ‡ z jej metod)
+```
 sudo apt-get install python3-dev python3-pip
 sudo pip3 install max7219
-
-mo¿na j¹ znalezc rowniez tutaj: https://pypi.python.org/pypi/max7219
-
-#####################################################
-## Biblioteka nowa luma (instalujemy pozniej)
-#####################################################
-
+moÅ¼na jÄ… znalezc rowniez tutaj: https://pypi.python.org/pypi/max7219
+```
+### Biblioteka nowa luma (instalujemy pozniej, potrzebna tylko do konfiguracji spi)
+```
 sudo usermod -a -G spi,gpio pi
 sudo apt-get install build-essential libfreetype6-dev libjpeg-dev
 sudo -i pip3 install --upgrade pip setuptools
@@ -23,12 +23,4 @@ te 2 ponizej nie uzywamy
 #sudo apt-get install python3-pip
 
 sudo -H pip3 install --upgrade luma.led_matrix
-
-#####################################################
-## Virtualenv, w przypadku jak powy¿sze opcje nie dzialaja
-#####################################################
-
-sudo pip3 install virtualenv
-wchodzimy w repozytorium do: virtual_machine/vm/bin/
-odpalamy komende: source activate
-przechodzimy do folderu z repo i odpalamy skrypt: python3 screen_test.py
+```
