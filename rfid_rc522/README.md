@@ -39,6 +39,39 @@ sudo python setup.py install
 
 ### Testowe repozytorium
 ```
-cd ~
-git clone https://github.com/pimylifeup/MFRC522-python.git
+git clone https://github.com/pimylifeup/MFRC522-python.git - stąd pobrane zostały potrzebne biblioteki,
+jest to już zawarte w naszym repo więc nie musisz tego pobierać
+```
+### Uruchomienie
+```
+Zaktualizuj repozytorium ZSL-Robotyka przy pomocy komendy: git pull -r bądź pobierz na nowo:
+git clone https://github.com/slawek367/ZSL-Robotyka.git
+
+Wykonaj pierwsze kroki z instrukcji, podłączenie modułu, włączenie SPI, instalacja potrzebnych bibliotek.
+Następnie przejdź do folderu ZSL-Robotyka/rfid_rc522 i zweryfikuj czy wszystko działa poprawnie.
+
+Znajdują się w nim skrypty:
+
+MFRC522.py - potrzebna biblioteka, musi sie znajdować w folderze z odpalanym skryptem
+SimpleMFRC522.py - potrzebna biblioteka, musi sie znajdować w folderze z odpalanym skryptem
+
+test_write_rfid.py - Test zapisu karty, odpal jako pierwszy i sprawdź czy karta zapisuje się poprawnie
+test_read_rfid.py - Test odczytu, jeśli wszystko zapisało się dobrze powinieneś zobaczyć odczytaną wiadomość z karty oraz jej ID
+test_user_managment.py - Wstęp do projektu zarządzania użytkownikami, na tym projekcie możesz bazować wykonując swój
+
+Używamy pythona 2.7 dlatego skrypty uruchamiaj tak: python test_write_rfid.py zamiast python3
+```
+
+### Projekt
+```
+Wykonaj projekt sklepu, który prowadzi sprzedaż za pomocą swoich kart podarunkowych,
+Zadbaj o to by znajdowało się tutaj:
+- dodawanie/kasowanie użytkowników (klasa User i Users podobnie jak w przykładzie)
+- obciążanie użytkownika jakąś kwotą, np kwota 100 zł i pobranie jej po przyłożeniu karty
+- wyświetlanie informacji o użytkowniku po przyłożeniu karty
+- klasa Store zawierająca listę przedmiotów wraz z ich cenami
+- klasa Cart przechowująca listę przedmiotów jakie chcemy kupić
+
+Projekt wykonujemy przez 2-3 zajęcia,
+każdy robi tyle ile jest w stanie :)
 ```
