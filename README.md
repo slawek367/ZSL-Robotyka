@@ -9,5 +9,6 @@ W części folderów oprócz samych plików znajdziesz README z informacjami o t
 - lekcja2_rpi - przykładowe użycie pinow GPIO
 - led_display - uruchomienie i użytkowanie wyświetlacza LED matrix 8x8
 - 4x4_keyboard - uruchomienie i użytkowanie klawiatury 4x4
+- rfid_rc522 - uruchomienie i używanie modułu rfid wraz z kartami
 - PiFollower - projekt linefollowera, ongoing...
 - FlaskApp - projekt mini web aplikacji wykonanej przy użyciu frameworka Flask, ongoing...
