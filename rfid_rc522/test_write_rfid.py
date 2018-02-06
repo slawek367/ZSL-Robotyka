@@ -1,9 +1,9 @@
 #!/usr/bin/env python
 
 import RPi.GPIO as GPIO
-import SimpleMFRC522
+from SimpleMFRC522 import SimpleMFRC522 as RFID
 
-reader = SimpleMFRC522.SimpleMFRC522()
+reader = RFID()
 
 try:
         text = raw_input('New data:')
