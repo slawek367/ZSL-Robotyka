@@ -1,0 +1,20 @@
+{
+    "1": {
+        "power": 198,
+        "name": "Audi TT",
+        "id": 1,
+        "prod_year": 2000
+    },
+    "2": {
+        "power": 302,
+        "name": "BMW Z3",
+        "id": 2,
+        "prod_year": 2008
+    },
+    "3": {
+        "power": 102,
+        "name": "Opel Astra",
+        "id": 3,
+        "prod_year": 1996
+    }
+}
