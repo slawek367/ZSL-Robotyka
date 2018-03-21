@@ -1,15 +1,20 @@
 ### JSON & API REQUESTS
+
 ##Przydatne linki
+
 ```
 Korzystanie z JSON: https://automatetheboringstuff.com/chapter14/
 API jakości powietrza: http://powietrze.gios.gov.pl/pjp/content/api
 Requests: https://www.digitalocean.com/community/tutorials/how-to-use-web-apis-in-python-3
 ```
 ##Instrukcja
+
 Przykłady znajdziesz w:
 examples_json.py
 examples_requests.py
+
 ##Zadania
+
 ```
 1. Utwórz klase Player, zawierającą kilka pól np. nickname, gold, map itp,
 a następnie stwórz kilka jej obiektów umieszczając je w liście players,
