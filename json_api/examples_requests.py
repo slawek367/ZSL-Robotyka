@@ -2,7 +2,7 @@ import json
 import requests
 import sys
 
-#We need to specify on what data we are working
+#We need to specify what data on what data we working
 headers = {'Content-Type': 'application/json; charset=utf-8'}
 
 # RUN GET REQUEST to URL
@@ -13,4 +13,7 @@ response_json = json.loads(response.content.decode('utf-8'))
 
 print("Status code: " + str(response_code))
 print("First element from json response: \n" + str(response_json[0]))
+print(response_json[0]['city']['commune']['communeName'])
 
+for station in response_json:
+    print(station['city']['commune']['communeName'])
