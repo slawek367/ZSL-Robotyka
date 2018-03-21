@@ -2,7 +2,7 @@ import json
 import requests
 import sys
 
-#We need to specify what data on what data we working
+#We need to specify on what data we are working
 headers = {'Content-Type': 'application/json; charset=utf-8'}
 
 # RUN GET REQUEST to URL
