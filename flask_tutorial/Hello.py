@@ -1,5 +1,6 @@
 #Tutorial: https://www.tutorialspoint.com/flask/flask_application.htm
-
+#Tutorial 2: https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-ii-templates
+#Bootstrap: https://getbootstrap.com/docs/4.0/getting-started/introduction/
 '''
 {% ... %} for Statements
 {{ ... }} for Expressions to print to the template output
