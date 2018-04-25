@@ -1,0 +1,21 @@
+{% extends 'layout.html' %}
+{% block body %}
+    <div class="container text-center">
+        <h1>Please log in</h1>
+
+        <form action="/login" method="POST">
+            <input name="username" class="form-control" placeholder="Username" required="" autofocus="" type="username">
+            <input name="password" class="form-control" placeholder="Password" required="" type="password">
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+        </form>
+        <div>
+            {% with messages = get_flashed_messages() %}
+              {% if messages[0] == "You were successfully logged in" %}
+                <div class="alert alert-success">{{ messages[0] }}</div>
+              {% elif messages[0] == "You typed wrong username or password!" %}
+                <div class="alert alert-warning"> {{ messages[0] }} </div>
+              {% endif %}
+            {% endwith %}
+        </div>
+    </div>
+{% endblock %}

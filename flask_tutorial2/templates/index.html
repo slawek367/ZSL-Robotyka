@@ -1,0 +1,9 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+    {% if 'logged_in' in session and session['logged_in'] == True %}
+    <div class="container text-center">Zalogowany!</div>
+    {% else %}
+    <div class="container text-center">Wylogowany!</div>
+    {% endif %}
+{% endblock %}

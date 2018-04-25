@@ -1,0 +1,12 @@
+{% extends 'layout.html' %}
+{% block body %}
+    <div class="container text-center">
+        <h1>Registration</h1>
+        <form action="/register" method="POST">
+            <input name="username" class="form-control" placeholder="Username" required="" autofocus="" type="username">
+            <input name="password" class="form-control" placeholder="Password" required="" type="password">
+            <input name="email" class="form-control" placeholder="Email" required="" type="email">
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+        </form>
+    </div>
+{% endblock %}

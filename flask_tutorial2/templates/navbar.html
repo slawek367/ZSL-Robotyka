@@ -1,0 +1,12 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="/">Home</a>
+    <ul class="navbar-nav ml-auto">
+
+        {% if 'logged_in' in session and session['logged_in'] == True %}
+            <li class="nav-item"><a class="nav-link" href="/logout">Logout</a></li>
+        {% else %}
+            <li class="nav-item"><a class="nav-link" href="/register">Register</a></li>
+            <li class="nav-item"><a class="nav-link" href="/login">Login</a></li>
+        {% endif %}
+    </ul>
+</nav>
