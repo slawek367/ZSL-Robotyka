@@ -1,4 +1,5 @@
 from flask import Flask, session, redirect, url_for, escape, request, render_template, flash
+from database import Database
 
 app = Flask(__name__)
 
@@ -9,8 +10,9 @@ def index():
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
-        if request.form['username'] == "test" and \
-                request.form['password'] == "haslo":
+        db = Database()
+        user_password = db.get_user_password(request.form['username'])[0]
+        if request.form['password'] == user_password:
             session['logged_in'] = True
             flash('You were successfully logged in')
             return render_template('login.html')
@@ -23,6 +25,17 @@ def login():
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
+    db = Database()
+
+    if request.method == 'POST':
+        username = request.form['username']
+        password = request.form['password']
+        email = request.form['email']
+        if db.add_account(username, password, email):
+            flash('Your account was created succesfully!')
+        else:
+            flash('Account already exists!')
+
     return render_template('register.html')
 
 @app.route('/logout', methods=['GET'])
@@ -31,6 +44,5 @@ def logout():
     return redirect(url_for('index'))
 
 if __name__ == '__main__':
-    app.secret_key = 'A0Zr98j/3yX R~XHfdasfadfdfafadaH!jmN]LWX/,?RT'
     app.secret_key = 'A0Zr98j/3yX R~XHfdasfadfdfafadaH!jmN]LWX/,?RT'
     app.run(port=5011, debug=True)

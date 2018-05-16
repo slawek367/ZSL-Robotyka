@@ -8,5 +8,14 @@
             <input name="email" class="form-control" placeholder="Email" required="" type="email">
             <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
         </form>
+        <div>
+            {% with messages = get_flashed_messages() %}
+              {% if messages[0] == "Your account was created succesfully!" %}
+                <div class="alert alert-success">{{ messages[0] }}</div>
+              {% elif messages[0] == "Account already exists!" %}
+                <div class="alert alert-warning"> {{ messages[0] }} </div>
+              {% endif %}
+            {% endwith %}
+        </div>
     </div>
 {% endblock %}
