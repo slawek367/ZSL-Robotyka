@@ -1,0 +1,45 @@
+{% extends 'layout.html' %} {% block body %}
+<div class="container text-center">
+  <h2>Settings</h2>
+  <form action="/settings" method="POST" class="col-md-6 offset-md-3">
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text input_label" id="basic-addon3">Name</span>
+      </div>
+      <input name="name" placeholder="test" type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+    </div>
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text input_label" id="basic-addon3">Surrname</span>
+      </div>
+      <input name="surrname" placeholder="test" type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+    </div>
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text input_label" id="basic-addon3">Age</span>
+      </div>
+      <input name="age" placeholder="test" type="number" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+    </div>
+    <button class="btn btn-md btn-primary btn-block col-md-3 offset-md-9" type="submit">Save settings</button>
+  </form>
+  <h2>Profile photo</h2><br>
+  <form action="/settings/profile" method="POST" class="col-md-6 offset-md-3">
+      <div>
+          <div>
+            <input name="profile_photo" type="file" class="form-control-file" id="get_profile_photo">
+          </div>
+          <div>
+              <img src="http://img.ecomteam.ro/2017/img/ecomteam_fb/assets/fb.jpg" alt="Avatar" class="avatar">
+          </div>
+      </div>
+      <button class="btn btn-md btn-primary btn-block col-md-3 offset-md-9" type="submit">Upload photo</button>
+  </form>
+  <!-- http://plugins.krajee.com/file-avatar-upload-demo -->
+  <h2>Change email</h2><br>
+  <div>
+    {% with messages = get_flashed_messages() %} {% if messages %}
+    <div class="alert alert-success">{{ messages[0] }}</div>
+    {% endif %} {% endwith %}
+  </div>
+</div>
+{% endblock %}

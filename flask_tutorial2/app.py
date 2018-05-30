@@ -14,10 +14,11 @@ def login():
         user_password = db.get_user_password(request.form['username'])[0]
         if request.form['password'] == user_password:
             session['logged_in'] = True
-            flash('You were successfully logged in')
-            return render_template('login.html')
+            session['user'] = request.form['username']
+            return redirect(url_for('index'))
         else:
             session['logged_in'] = False
+            session['user'] = False
             flash('You typed wrong username or password!')
             return render_template('login.html')
     else:
@@ -38,9 +39,19 @@ def register():
 
     return render_template('register.html')
 
+@app.route('/settings', methods=['GET', 'POST'])
+def settings():
+    db = Database()
+    if request.method == 'POST':
+        pass
+    else:
+        return render_template('settings.html')
+
+
 @app.route('/logout', methods=['GET'])
 def logout():
     session['logged_in'] = False
+    session['user'] = False
     return redirect(url_for('index'))
 
 if __name__ == '__main__':
