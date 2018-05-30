@@ -1,7 +1,19 @@
 from flask import Flask, session, redirect, url_for, escape, request, render_template, flash
+
 from database import Database
+from profile import Profile
+from functools import wraps
 
 app = Flask(__name__)
+
+def login_required(f):
+    @wraps(f)
+    def decorated_function(*args, **kwargs):
+        if session['logged_in'] is not True:
+            flash('You must be logged in to enter this page!', 'danger')
+            return index()
+        return f(*args, **kwargs)
+    return decorated_function
 
 @app.route('/')
 def index():
@@ -40,12 +52,22 @@ def register():
     return render_template('register.html')
 
 @app.route('/settings', methods=['GET', 'POST'])
+@login_required
 def settings():
+    #if not session['logged_in']:
+    #    return redirect(url_for('index'))
+
     db = Database()
+    user_id = db.get_account(session['user'])[0]
+    profile = Profile()
+    profile.set_user_data(user_id)
+    #profile.print_user_data()
+
     if request.method == 'POST':
-        pass
-    else:
+        print(request.form['name'])
         return render_template('settings.html')
+    else:
+        return render_template('settings.html', profile=profile)
 
 
 @app.route('/logout', methods=['GET'])
