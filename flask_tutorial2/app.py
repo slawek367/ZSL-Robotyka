@@ -4,7 +4,14 @@ from database import Database
 from profile import Profile
 from functools import wraps
 
+from flask_uploads import UploadSet, configure_uploads, IMAGES
+
 app = Flask(__name__)
+
+#PHOTO PART
+photos = UploadSet('photos', IMAGES)
+app.config['UPLOADED_PHOTOS_DEST'] = 'D:\profilowe'
+configure_uploads(app, photos)
 
 def login_required(f):
     @wraps(f)
@@ -54,20 +61,33 @@ def register():
 @app.route('/settings', methods=['GET', 'POST'])
 @login_required
 def settings():
-    #if not session['logged_in']:
-    #    return redirect(url_for('index'))
-
     db = Database()
     user_id = db.get_account(session['user'])[0]
-    profile = Profile()
-    profile.set_user_data(user_id)
-    #profile.print_user_data()
+    profile = Profile(user_id)
 
     if request.method == 'POST':
-        print(request.form['name'])
-        return render_template('settings.html')
+        profile.name = request.form['name']
+        profile.surname = request.form['surname']
+        profile.age = request.form['age']
+        #TODO
+        profile.update_user_data()
+        return render_template('settings.html', profile=profile)
     else:
         return render_template('settings.html', profile=profile)
+
+
+@app.route('/user_photo', methods=['GET', 'POST'])
+def user_photo():
+    #TODO
+    # - add database which will store profile photo name and user id
+    # - update profile photo on page
+    #some instruction: https://stackoverflow.com/questions/44926465/upload-image-in-flask
+    print(request.files)
+    print(request.method)
+    if request.method == 'POST' and 'profile_photo' in request.files:
+        filename = photos.save(request.files['profile_photo'])
+        return filename
+    return redirect(url_for('settings'))
 
 
 @app.route('/logout', methods=['GET'])

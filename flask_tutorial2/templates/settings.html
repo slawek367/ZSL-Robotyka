@@ -24,7 +24,7 @@
   </form>
 
   <h2>Profile photo</h2><br>
-  <form action="/settings/profile" method="POST" class="col-md-6 offset-md-3">
+  <form action="{{ url_for('user_photo') }}" method="POST" enctype=multipart/form-data class="col-md-6 offset-md-3">
       <div>
           <div>
             <input name="profile_photo" type="file" class="form-control-file" id="get_profile_photo">
@@ -35,6 +35,12 @@
       </div>
       <button class="btn btn-md btn-primary btn-block col-md-4 offset-md-8" type="submit">Upload photo</button>
   </form>
+  <!--
+  <form method=POST enctype=multipart/form-data action="{{ url_for('user_photo') }}">
+    <input type=file name=profile_photo>
+    <input type="submit">
+  </form>
+-->
   <!-- http://plugins.krajee.com/file-avatar-upload-demo -->
 
   <h2>Change email</h2><br>
