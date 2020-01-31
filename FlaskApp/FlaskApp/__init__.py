@@ -10,13 +10,13 @@ app = Flask(__name__)
 
 @app.route('/')
 def homepage():
-    lcd.screen1.show_message("DUPA")
+    lcd.screen1.show_message("TEST")
     return render_template("main.html")
 
 @app.route('/show_message', methods=['POST'])
 def show_message():
     #lcd.screen1.show_message(str(request.form["text"]))
-    lcd.screen1.show_message("DUPA")
+    lcd.screen1.show_message("TEST")
     print(str(request.form["text"]))
     return "Showing text: "
 
