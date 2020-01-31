@@ -10,7 +10,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def homepage():
-    lcd.screen1.show_message("TEST")
+    lcd.screen1.show_message("TEST ")
     return render_template("main.html")
 
 @app.route('/show_message', methods=['POST'])
